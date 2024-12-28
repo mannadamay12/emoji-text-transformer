@@ -1,22 +1,47 @@
 {
-  "name": "emoji-text-transformer",
+  "name": "@mannadamay12/emoji-text-transformer",
   "version": "1.0.0",
-  "main": "index.js",
-  "directories": {
-    "test": "tests"
-  },
+  "description": "Transform plain text into stylized emoji text with customizable mappings",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test",
+    "version": "git add -A src",
+    "postversion": "git push && git push --tags"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "emoji",
+    "text-transformer",
+    "text-styling",
+    "unicode",
+    "string-manipulation",
+    "typescript"
+  ],
+  "author": "mannadamay12",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mannadamay12/emoji-text-transformer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mannadamay12/emoji-text-transformer/issues"
+  },
+  "homepage": "https://github.com/mannadamay12/emoji-text-transformer#readme",
   "devDependencies": {
     "@types/jest": "^29.5.14",
     "jest": "^29.7.0",
     "ts-jest": "^29.2.5",
     "typescript": "^5.7.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
