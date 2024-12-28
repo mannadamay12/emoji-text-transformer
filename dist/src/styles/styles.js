@@ -4,13 +4,19 @@ exports.emojiStyle = void 0;
 const alphabetMapping_1 = require("../mappings/alphabetMapping");
 /**
  * Transforms a given text into emoji style using the alphabet mapping.
+ * All letters are converted to uppercase regional indicators.
  * @param text - The input text to transform.
- * @returns The transformed text.
+ * @returns The transformed text with regional indicator emojis.
  */
 const emojiStyle = (text) => {
     return text
         .split("")
-        .map((char) => alphabetMapping_1.alphabetMapping[char] || char) // Use the emoji mapping or keep the character unchanged
+        .map((char) => {
+        // Convert to uppercase first
+        const upperChar = char.toUpperCase();
+        // Only transform letters, preserve other characters
+        return alphabetMapping_1.alphabetMapping[upperChar] || char;
+    })
         .join("");
 };
 exports.emojiStyle = emojiStyle;
